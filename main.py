@@ -7,6 +7,7 @@ CAPTURE_PHOTO13 = 13
 CAPTURE_PHOTO12 = 12
 IRRIGATE_COMMAND11 = 11
 SPRAY_COMMAND10 = 10
+print("Program started")
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
