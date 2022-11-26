@@ -7,7 +7,7 @@ CAPTURE_PHOTO13 = 13
 CAPTURE_PHOTO12 = 12
 IRRIGATE_COMMAND11 = 11
 SPRAY_COMMAND10 = 10
-print("Program started")
+print("Main Program running now")
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -64,7 +64,6 @@ while True:
             plant_height()
     except:
         pass
-    break
 
     
 # os.remove(name)
