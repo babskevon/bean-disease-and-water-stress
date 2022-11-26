@@ -64,7 +64,7 @@ while True:
             plant_height()
     except:
         pass
-    pass
+    break
 
     
 # os.remove(name)
