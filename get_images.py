@@ -2,6 +2,13 @@ import cv2
 import datetime
 from time import sleep
 
+def format_data(response):
+    if(response['stress'] != 'healthy' and response['bean'] != 'healthy'):
+        return {'irrigate':1,'spray':1}
+    if(response['stress'] != 'healthy'):
+        return {'irrigate':0,'spray':1}
+    if(response['bean'] != 'healthy'):
+        return {'irrigate':1,'spray':0}
 
 def get_bean_image(index):
     image_name = "img_"+str(datetime.datetime.now()).replace(" ","-")+".jpg"
@@ -40,3 +47,6 @@ def get_image_height(index):
     cv2.destroyAllWindows()
 
     return image_name
+
+
+

@@ -1,6 +1,7 @@
-from get_images import get_bean_image, get_image_height
+from get_images import get_bean_image, get_image_height, format_data
 from time import sleep
 import os
+import json
 import requests
 import RPi.GPIO as GPIO
 CAPTURE_PHOTO13 = 13
@@ -23,7 +24,9 @@ def spray_beans():
     name = get_bean_image(0)
     url = 'https://farmbotug.pythonanywhere.com/photo/'
     f = open(name,'rb')
-    response = requests.post(url,files={'name':f}).text
+    response = requests.post(url,files={'name':f})
+    response = json.loads(response.text)
+    response = format_data(response)
     if(response['irrigate'] == 1):
         GPIO.output(IRRIGATE_COMMAND11, GPIO.HIGH)
         sleep(6)
@@ -38,7 +41,8 @@ def plant_height():
     name = get_bean_image(1)
     url = 'https://farmbotug.pythonanywhere.com/photo2/'
     f = open(name,'rb')
-    response = requests.post(url,files={'name':f}).text
+    response = requests.post(url,files={'name':f})
+    response = json.loads(response.text)
     sleep(1)
     os.remove(name)
 
@@ -50,6 +54,7 @@ while True:
     try:
         data = {}
         value = requests.post(url,data=data)
+        response = json.loads(value.text)
         if(value['spray']==1):
             GPIO.output(SPRAY_COMMAND10, GPIO.HIGH)
             sleep(6)
