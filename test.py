@@ -1,11 +1,11 @@
 import requests
 import json
 from get_images import get_image_height
-url = 'https://farmbotug.pythonanywhere.com/photo/'
-# url = 'http://127.0.0.1:8000/photo/'
-name = get_image_height(0)
+url = 'https://farmbotug.pythonanywhere.com/photo2/'
+# url = 'http://127.0.0.1:8000/photo2/'
+# name = get_image_height(0)
 # myfiles = {'file': open(name ,'rb')}
-f = open(name,'rb')
+f = open('healthy_test.6.jpg','rb')
 response = requests.post(url,files={'name':f})
 # response = json.loads(response.text)
 response = response.text

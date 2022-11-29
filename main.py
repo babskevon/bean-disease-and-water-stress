@@ -45,6 +45,7 @@ def plant_height():
     response = json.loads(response.text)
     sleep(1)
     os.remove(name)
+    return response['height']
 
 
 GPIO.add_event_detect(CAPTURE_PHOTO13, GPIO.RISING, callback=spray_beans)
