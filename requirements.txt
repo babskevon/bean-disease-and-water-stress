@@ -44,7 +44,7 @@ mote==0.0.4
 motephat==0.0.3
 mypy==0.812
 mypy-extensions==0.4.3
-numpy==1.19.3
+numpy==1.16.5
 oauthlib==3.1.0
 opencv-python==4.6.0.66
 pantilthat==0.0.7
@@ -79,7 +79,7 @@ python-apt==2.2.1
 python-prctl==1.7
 rainbowhat==0.1.0
 reportlab==3.5.59
-requests==2.25.1
+requests==2.27.0
 requests-oauthlib==1.0.0
 responses==0.12.1
 roman==2.0.0
